@@ -131,7 +131,7 @@ class OrderViewSet(viewsets.ModelViewSet):
     # permission_classes = [IsAuthenticated]
     queryset = Order.objects.all()
     serializer_class = OrderSerializer
-    pagination_class = OrderSetPagination
+    # pagination_class = OrderSetPagination
 
     def get_queryset(self):
 
