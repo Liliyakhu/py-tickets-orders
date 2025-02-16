@@ -89,6 +89,7 @@ class MovieSessionDetailSerializer(MovieSessionSerializer):
     taken_places = serializers.SerializerMethodField()  # Renaming here
 
     def get_taken_places(self, obj):
+
         # Fetch the occupied seats (row, seat) for the movie session
         return list(Ticket.objects.filter(
             movie_session=obj

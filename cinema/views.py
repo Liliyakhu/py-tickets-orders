@@ -98,7 +98,7 @@ class MovieSessionViewSet(viewsets.ModelViewSet):
         date = self.request.query_params.get("date")
         movie = self.request.query_params.get("movie")
         if date:
-            # date = date[:11]
+            date = date[:11]
             queryset = queryset.filter(show_time__startswith=date)
         if movie:
             movie = int(movie)
@@ -133,6 +133,7 @@ class OrderViewSet(viewsets.ModelViewSet):
     pagination_class = OrderSetPagination
 
     def get_queryset(self):
+
         queryset = self.queryset.filter(user=self.request.user)
 
         if self.action in ["list", "retrieve"]:
